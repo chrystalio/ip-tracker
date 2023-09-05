@@ -56,3 +56,11 @@ form.addEventListener("submit", async (event) => {
         showError();
     }
 });
+
+// Event listener for enter keypress
+ipInput.addEventListener("keydown", (event) => {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        form.dispatchEvent(new Event("submit"));
+    }
+});
