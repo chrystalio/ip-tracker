@@ -43,3 +43,16 @@ window.addEventListener('load', async () => {
         showError();
     }
 });
+
+// Event listener for form submit
+form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const ipValue = ipInput.value;
+    try {
+        // Fetch and render IP info based on user input
+        const ipInfoData = await getIpInfo(ipValue);
+        renderIpInfo(ipInfoData);
+    } catch {
+        showError();
+    }
+});
