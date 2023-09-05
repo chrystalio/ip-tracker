@@ -1,7 +1,7 @@
 // Set DOM element
 const [ipInput, form, ipAddress, locationIP, timeZone, ISP] = ["#search", "form", "ip-address", "location", "time-zone", "isp"].map(selector => document.querySelector(selector));
 
-// Fungtion to fetch data from API
+// Function to fetch data from API
 const getIpInfo = async (ip) => {
     const response = await fetch(`https://ipapi.co/${ip}/json/`);
     if(!response.ok) throw new Error('Failed to fetch iP Information');
