@@ -37,8 +37,8 @@ window.addEventListener('load', async () => {
         const { ip } = await userInfo.json();
 
         // Render IP Information
-        const data = await getIpInfo(ip);
-        renderIpInfo(data);
+        const ipInfoData = await getIpInfo(ip);
+        renderIpInfo(ipInfoData);
     } catch (error) {
         showError();
     }
