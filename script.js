@@ -8,6 +8,16 @@ const getIpInfo = async (ip) => {
     return await response.json();
 }
 
+// Function to render IP Information to the page
+const renderIpInfo = (data) => {
+    [ipAddress, locationIP, timeZone, ISP].forEach((element, index) => {
+        element.textContent = index === 0 ? data.ip : index === 1 ? `${data.city}, ${data.region} ${data.postal}` : index === 2 ? `UTC${data.utc_offset}` : data.org;
+    });
+    const { latitude, longitude } = data;
+    map.setView([latitude, longitude], 13);
+
+}
+
 // Initialize leaflet map
 const map = L.map('map').setView([-6.315299, 106.699219], 6).addLayer(L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 20,
