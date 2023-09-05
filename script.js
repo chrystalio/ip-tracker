@@ -27,3 +27,19 @@ const renderIpInfo = (data) => {
 const showError = () => {
     alert('Failed to fetch iP Information');
 }
+
+// Event listener for page load
+window.addEventListener('load', async () => {
+    try {
+        // Fetch IP Information
+        const userInfo = await fetch('https://api.ipify.org?format=json');
+        if(!userInfo.ok) throw new Error('Failed to fetch iP Information');
+        const { ip } = await userInfo.json();
+
+        // Render IP Information
+        const data = await getIpInfo(ip);
+        renderIpInfo(data);
+    } catch (error) {
+        showError();
+    }
+});
