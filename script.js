@@ -22,3 +22,8 @@ const renderIpInfo = (data) => {
     const { latitude, longitude } = data;
     map.setView([latitude, longitude], 13);
 }
+
+// Function to show an error alert
+const showError = () => {
+    alert('Failed to fetch iP Information');
+}
