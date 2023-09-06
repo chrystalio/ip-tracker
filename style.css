@@ -167,6 +167,10 @@ p{
     #map{
         height: 65%;
     }
+
+    #footer{
+        margin-top: 10px;
+    }
 }
 
 
