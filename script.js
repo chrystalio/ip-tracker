@@ -17,7 +17,7 @@ const getIpInfo = async (ip) => {
 // Function to render IP information on the page
 const renderIpInfo = (data) => {
     [ipAddress, locationIP, timeZone, ISP].forEach((el, index) => {
-        el.textContent = index === 0 ? data.ip : index === 1 ? `${data.city}, ${data.region} ${data.postal}` : index === 2 ? `UTC${data.utc_offset}` : data.org;
+        el.textContent = index === 0 ? data.ip : index === 1 ? `${data.city}, ${data.region}, ${data.country}` : index === 2 ? `UTC${data.utc_offset}` : data.org;
     });
     const { latitude, longitude } = data;
     map.setView([latitude, longitude], 13).addLayer(L.marker([latitude, longitude]));
